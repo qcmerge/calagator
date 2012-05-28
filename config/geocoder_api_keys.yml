@@ -25,7 +25,7 @@ development:
   google: "YOUR_KEY_GOES_HERE"
 
 production:
-  google: "YOUR_KEY_GOES_HERE"
+  google: "AIzaSyCOS0iT3QbDh2BO8m_AvfhJRw065h6uYTM"
 
 # (No test key needed: the tests stub out geocoding so that we test our
 # own code without calling Google.)

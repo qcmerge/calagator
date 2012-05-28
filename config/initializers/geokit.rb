@@ -36,12 +36,7 @@ GeoKit::Geocoders::yahoo = 'REPLACE_WITH_YOUR_YAHOO_KEY'
 # CALAGATOR: We also assign the key to GOOGLE_APPLICATION_ID to make
 # the gmaps_on_rails plugin happy.
 #
-keys_path = Rails.root.join('config','geocoder_api_keys.yml')
-if File.exist? keys_path
-  geocoder_api_keys = YAML.load_file(keys_path)
-  GeoKit::Geocoders::google = GOOGLE_APPLICATION_ID = \
-    geocoder_api_keys.fetch(Rails.env,{})['google']
-end
+GeoKit::Geocoders::google = GOOGLE_APPLICATION_ID = ENV.fetch('GMAPS_API_KEY', :default => '12345')
 
 # This is your username and password for geocoder.us.
 # To use the free service, the value can be set to nil or false.  For 
