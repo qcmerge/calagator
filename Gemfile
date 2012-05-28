@@ -1,5 +1,7 @@
 source :rubygems
 
+gem 'rake', '~> 0.8.7'
+
 basedir = File.dirname(__FILE__)
 
 # Use "syck" YAML engine on Ruby 1.9.2 with early versions (e.g. p180) because
