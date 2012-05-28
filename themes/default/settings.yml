@@ -1,14 +1,14 @@
 # Site's name:
-name: 'Calagator'
+name: 'Cincinnati Tech Events'
 
 # Site's tagline:
-tagline: "Portland's Tech Calendar"
+tagline: "Cincinnati's Tech Calendar"
 
 # Site's URL with trailing slash:
-url: 'http://calagator.org/'
+url: 'http://calendar.madeincincy.com/'
 
 # Default timezone, run "rake -D time" for information on how to display known timezones:
-timezone: 'Pacific Time (US & Canada)'
+timezone: 'Eastern Time (US & Canada)'
 
 # Google map to display on /venues page:
 venues_google_map_options:
