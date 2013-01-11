@@ -62,7 +62,7 @@ else
 end
 
 # Run-time dependencies
-gem 'rails', '3.0.14'
+gem 'rails', '3.0.15'
 gem 'columnize', '0.3.6'
 gem 'rdoc', '3.12', :require => false
 gem 'geokit', '1.6.5'
@@ -102,6 +102,7 @@ end
 # production servers, you can skip their installation by running:
 #   bundle install --without development:test
 group :development, :test do
+  gem 'foreman'
   gem 'rspec-rails', '2.11.0'
   gem 'webrat', '0.7.3'
   gem 'factory_girl_rails', '1.7.0' # 2.0 and above don't support Ruby 1.8.7 :(
