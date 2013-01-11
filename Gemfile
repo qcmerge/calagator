@@ -62,6 +62,7 @@ else
 end
 
 # Run-time dependencies
+gem 'rake', '0.8.7'
 gem 'rails', '3.0.15'
 gem 'columnize', '0.3.6'
 gem 'rdoc', '3.12', :require => false
