@@ -63,7 +63,7 @@ end
 
 # Run-time dependencies
 gem 'rake', '0.8.7'
-gem 'rails', '3.0.15'
+gem 'rails', '3.0.20'
 gem 'columnize', '0.3.6'
 gem 'rdoc', '3.12', :require => false
 gem 'geokit', '1.6.5'
