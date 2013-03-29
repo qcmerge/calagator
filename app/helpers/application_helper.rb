@@ -82,6 +82,8 @@ module ApplicationHelper
     rescue Errno::ENOENT
       # Platform (e.g., Windows) has the checkout directory but not the command-line command to manipulate it.
       return ""
+    rescue
+      []
     end
   end
 
