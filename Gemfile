@@ -52,8 +52,7 @@ case adapter
 when 'pg', 'postgresql'
   gem 'pg'
 when 'mysql2'
-  # The latest "mysql2" gem isn't compatible with our Rails 3.0
-  gem adapter, '~> 0.2.0'
+  gem 'mysql2', '~> 0.3.11'
 when 'jdbcsqlite3'
   gem 'jdbc-sqlite3'
   gem 'activerecord-jdbcsqlite3-adapter'
@@ -62,8 +61,8 @@ else
 end
 
 # Run-time dependencies
-gem 'rake', '0.8.7'
-gem 'rails', '3.0.20'
+gem 'rails', '3.2.12'
+gem 'rails_autolink', '1.0.9'
 gem 'columnize', '0.3.6'
 gem 'rdoc', '3.12', :require => false
 gem 'geokit', '1.6.5'
@@ -75,10 +74,12 @@ gem 'will_paginate', '3.0.3'
 gem 'httparty', '0.8.3'
 gem 'multi_json' # Use whichever version 'httparty' wants, needed for our specs
 gem 'loofah', '1.2.1'
-gem 'loofah-activerecord', '1.0.0'
+# NOTE: 'loofah-activerecord' doesn't support Rails 3.2, so use my fork:
+gem 'loofah-activerecord', :git => 'git://github.com/igal/loofah-activerecord.git', :branch => 'with_rails_3.1_and_3.2'
 gem 'bluecloth', '2.2.0'
 gem 'formtastic', '2.0.2' # 2.1 and above change the syntax significantly :(
-gem 'validation_reflection', '1.0.0'
+# validation_reflection 1.0.0 doesn't support Rails 3.2, so use unofficial patches:
+gem 'validation_reflection', :git => 'git://github.com/ncri/validation_reflection.git', :ref => '60320e6beb088808fd625a8d958dbd0d2661d494'
 gem 'acts-as-taggable-on', '2.3.3'
 gem 'themes_for_rails', '0.5.1'
 gem 'jquery-rails', '1.0.19'
@@ -87,7 +88,7 @@ gem 'exception_notification', '2.6.1'
 
 # gem 'paper_trail_manager', :git => 'https://github.com/igal/paper_trail_manager.git'
 # gem 'paper_trail_manager', :path => '../paper_trail_manager'
-gem 'paper_trail_manager', '0.1.4'
+gem 'paper_trail_manager', '>= 0.2.0'
 
 platform :jruby do
   gem 'activerecord-jdbc-adapter'
@@ -107,8 +108,26 @@ group :development, :test do
   gem 'rspec-rails', '2.11.0'
   gem 'webrat', '0.7.3'
   gem 'factory_girl_rails', '1.7.0' # 2.0 and above don't support Ruby 1.8.7 :(
-  gem 'capistrano', '2.12.0'
-  gem 'capistrano-ext', '1.2.1'
+  gem 'spork', '~> 0.9.2'
+  gem 'database_cleaner', '~> 0.8.0'
+
+  # Do not install these interactive libraries onto the continuous integration server.
+  unless ENV['CI'] || ENV['TRAVIS']
+    # Deployment
+    gem 'capistrano', '2.12.0'
+    gem 'capistrano-ext', '1.2.1'
+
+    # Guard and plugins
+    gem 'guard', '~> 1.3.0'
+    gem 'guard-rspec', '~> 1.2.1'
+    gem 'guard-spork', '~> 1.1.0'
+
+    # Guard notifier
+    case RUBY_PLATFORM
+    when /-*darwin.*/ then gem 'growl'
+    when /-*linux.*/ then gem 'libnotify'
+    end
+  end
 
   # Optional libraries add debugging and code coverage functionality, but are not
   # needed otherwise. These are not activated by default because they may cause

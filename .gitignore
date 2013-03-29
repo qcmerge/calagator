@@ -5,19 +5,35 @@
 *.swp
 *.tmp
 *~
+.dev
 .dtach
+.rvmrc
 .vagrant
+Gemfile.local
+Gemfile.lock
+Makefile
 Vagrantfile.local
 config/database~custom.yml
 config/mongrel_cluster.yml
 config/newrelic.yml
+<<<<<<< HEAD
 config/thin.yml
 coverage.info
+=======
+config/secrets.yml
+config/sunspot.yml
+config/theme.txt
+config/thin.yml
+coverage.info*
+>>>>>>> upstream/master
 coverage/*
 db/*.sqlite3
 db/*.sqlite3.*
 db/schema.rb
+<<<<<<< HEAD
 Gemfile.local
+=======
+>>>>>>> upstream/master
 index/*
 log/*
 nbproject/*
@@ -30,8 +46,8 @@ public/stylesheets/active_scaffold
 public/stylesheets/all.css
 public/stylesheets/record_select
 public/themes/
-tags
 solr/data/*
+tags
 tmp/*
 tmp/cache/*
 tmp/pids/*
