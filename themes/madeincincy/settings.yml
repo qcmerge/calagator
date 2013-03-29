@@ -15,7 +15,7 @@ venues_google_map_options:
   # Zoom magnification level:
   zoom: 12
   # Center of the map, in latitude and longitude:
-  center: [45.518493, -122.660737]
+  center: [39.10190, -84.50970]
 
 # Array of tag names to exclude from tag cloud:
 tagcloud_exclusions:
